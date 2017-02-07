@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Const</title>
+</head>
+<body>
+<script>
+  const age=10;
+  //age=20; //error
+  const person={name:"Arjun",age:26};
+  console.log(person);
+  person.age=28;
+  console.log("modified person is:\n",person);
+
+  const arjun=Object.freeze(person);
+  console.log("arjun is:\n",arjun);
+  arjun.age=29;
+  console.log("modified arjun is:\n",arjun);
+  
+</script>
+</body>
+</html>
