@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Var</title>
+</head>
+<body>
+<script>
+  var width = 100;
+  console.log(width);
+  width=200; //can be updated or redefined. Does not warn us if redefined.
+  console.log(width);
+
+  {let age=100;
+    const feeling="nice";
+  }
+  console.log(age);
+  console.log(feeling);//should give an error because age and feeling are scoped within a block.
+
+//ERROR
+//Uncaught ReferenceError: age is not defined
+//Stops at age. Does not check feeling
+
+</script>
+</body>
+</html>
