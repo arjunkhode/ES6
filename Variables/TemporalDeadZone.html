@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Const</title>
+</head>
+<body>
+<script>
+  //var is hoisted
+  console.log(pizza); //produces undefined
+  var pizza="italian"; 
+
+  //******_____Note: execution order in JS_____*******
+  //Whenever a function is come across, dive into its execution stack
+  //every execution context has its own variable environment
+  //Events from outside JS engine are lined up in a queue and served after all execution stacks are executed.
+  //________________****___________________
+
+  //const and let are not hoisted
+  //console.log(burger); //Throws an undefined error
+  const burger="which wich?";
+
+  //Loop leak
+  for (var i = 0; i < 10; i++) {
+    console.log("Normal loop:",i); //prints 0 through 9
+    }
+    console.log("Leakage:",i); //leaks and prints 10
+
+    function display(i){
+      console.log(i);
+    }
+
+  console.log("Temporal dead zone problem:");
+  for (var i = 0; i < 10; i++) {
+    setTimeout(function(){console.log(i)},3000); 
+    }
+
+  //IIFE solution
+  console.log("IIFE\n");
+  for (var i = 0; i < 10; i++) {
+    setTimeout(display(i),3000); //Executes immediately and does not wait 3 seconds
+    }
+
+  //const and let solution
+  for (let i = 0; i < 10; i++) {
+    setTimeout(function(){  
+      console.log("Let:");
+      console.log(i)},3000); //executes immediately but shows after 3 seconds
+    }
+
+</script>
+</body>
+</html>
