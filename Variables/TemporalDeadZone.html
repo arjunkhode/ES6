@@ -26,21 +26,26 @@
     }
     console.log("Leakage:",i); //leaks and prints 10
 
-    function display(i){
-      console.log(i);
+  //display function
+  function displayIIFE(i){
+      console.log("IIFE display:",i);
     }
 
-  console.log("Temporal dead zone problem:");
   for (var i = 0; i < 10; i++) {
-    setTimeout(function(){console.log(i)},3000); 
+    setTimeout(function(){  console.log("Temporal dead zone problem:");  console.log(i)},3000); 
     }
 
-  //IIFE solution
-  console.log("IIFE\n");
+  //IIFE the display
   for (var i = 0; i < 10; i++) {
-    setTimeout(display(i),3000); //Executes immediately and does not wait 3 seconds
+    setTimeout(displayIIFE(i),3000); //Executes display right when setTimeout is being registered
     }
 
+  //var solution to  reproduce let effect
+  function loop(){
+    for(var i=0;i<10;i++) console.log("Delayed:",i);
+  }
+  setTimeout(loop,3000);
+  
   //const and let solution
   for (let i = 0; i < 10; i++) {
     setTimeout(function(){  
