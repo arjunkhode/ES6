@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions examples</title>
+</head>
+<body>
+<script>
+
+//MAP
+const names=['john','katy perry'];
+const fullNames=names.map(function(name){return `${name} Mayer`;});
+
+//using an arrow function (concise)
+const fullNames2=names.map((name)=>{return `${name} Mayer`;});
+
+//If one parameter, can omit parantheses
+const fullNames3=names.map(name=>{return `${name} Mayer`;})
+
+//If no parameters, use empty brackets ()
+const fullNames5=names.map(()=>`cool Mayer`);
+
+//If returning, can omit braces (Implicit return)
+const fullNames4=names.map(name=>`${name} Mayer`);
+
+//If returning an object expression, wrap object in ()
+const race="100m Dash";
+const winners=names.map(winner=>({name:winner, race}));
+
+//two parameters
+const winners2=names.map((winner,i)=>({name:winner,position:i+1,race}));
+
+//FILTER
+const ages=[11,54,45,34,65,72,23,17];
+const young=ages.filter(function(age){return age<18});
+
+//with arrow function
+
+const young2=ages.filter(age=>age<18);
+
+</script>
+</body>
+</html>
