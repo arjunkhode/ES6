@@ -55,7 +55,7 @@ top:0;
 	const image2=document.querySelector('.box2');
 	const container=document.querySelector('.container');
 	const button=document.querySelector('#btn');
-	let initialWidth=image2.style.width;
+	const initialWidth=image2.style.width;
 	let dragging = false;
 
 
@@ -76,9 +76,6 @@ function doit(){
 
 	image1.style.width.split('p')[0]<600?image1.style.width="600px":image1.style.width=initialWidth;
 	
-	//unnecessary
-	//image2.style.width=`${800-image1.style.width.split('p')[0]}px`;
-
 }
 
 button.addEventListener('click',doit);
