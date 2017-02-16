@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Before Monkey After Cat Astronaut!</title>
+</head>
+<body>
+
+<style>
+
+.container{
+	width:800px;
+	height:500px;
+	position: relative;
+
+}
+
+.box{
+background: url(http://www.thinkgeek.com/images/products/additional/large/isvs_space_cat_take_off_dd.jpg);
+width:30%;
+height:500px;
+position: absolute;
+left:0;
+top:0;
+}
+
+.box2{
+background: url(http://www.awdnews.com/images/1479733034452974-monkey.jpg) no-repeat;
+background-size: cover;
+
+width:100%;
+height:500px;
+position: absolute;
+right:0;
+top:0;
+}
+
+</style>
+	
+<div class="container">	
+
+<div class="box2"></div>
+<div class="box">
+
+</div>
+</div>
+
+<button id="btn">Click it</button>
+<script>
+//My goal is to dynamically adjust how much of the first image is visible
+//controlled by a draggable separator
+//the width of the first image should be adjustable by dragging
+//This can create a nice before-after effect for something like landscapes or anything really
+
+	const image1=document.querySelector('.box');
+	const image2=document.querySelector('.box2');
+	const container=document.querySelector('.container');
+	const button=document.querySelector('#btn');
+	let initialWidth=image2.style.width;
+	let dragging = false;
+
+
+//create ghostbar (This acts as a draggable border separator between the two images)
+/************
+const ghostbar=document.createElement("div");
+ghostbar.style.height="600px";
+ghostbar.style.width="5px";
+ghostbar.style.cursor="pointer";
+ghostbar.style.position="absolute";
+ghostbar.style.background="black";
+ghostbar.style.left=`${image1.getBoundingClientRect().width}px`;  //Voila the lightbulb moment!  //should run on mousemove too
+container.append(ghostbar);
+console.log("Ghostbar has been created");
+**************/
+
+function doit(){
+
+	image1.style.width.split('p')[0]<600?image1.style.width="600px":image1.style.width=initialWidth;
+	
+	//unnecessary
+	//image2.style.width=`${800-image1.style.width.split('p')[0]}px`;
+
+}
+
+button.addEventListener('click',doit);
+</script>
+
+</body>
+</html>
