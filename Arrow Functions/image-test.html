@@ -56,11 +56,12 @@ top:0;
 	const container=document.querySelector('.container');
 	const button=document.querySelector('#btn');
 	const initialWidth=image2.style.width;
+	let startX, startY, startWidth;
 	let dragging = false;
 
 
 //create ghostbar (This acts as a draggable border separator between the two images)
-/************
+
 const ghostbar=document.createElement("div");
 ghostbar.style.height="600px";
 ghostbar.style.width="5px";
@@ -70,7 +71,28 @@ ghostbar.style.background="black";
 ghostbar.style.left=`${image1.getBoundingClientRect().width}px`;  //Voila the lightbulb moment!  //should run on mousemove too
 container.append(ghostbar);
 console.log("Ghostbar has been created");
-**************/
+
+function doDrag(e){
+	image1.style.width=`${startWidth+e.clientX-startX}px`;
+	ghostbar.style.left=image1.style.width;
+}
+
+function stopDrag(e){
+	container.removeEventListener('mousemove',doDrag);
+	container.removeEventListener('mouseup',stopDrag);	
+}
+
+function initialize(e){
+	startX=e.clientX;
+	startY=e.clientY;
+	startWidth=image1.getBoundingClientRect().width; //startWidth is without px
+	container.addEventListener('mousemove',doDrag);
+	container.addEventListener('mouseup',stopDrag);
+}
+
+
+
+ghostbar.addEventListener('mousedown',initialize);
 
 function doit(){
 
