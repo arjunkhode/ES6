@@ -77,7 +77,7 @@ console.log("Ghostbar has been created");
 
 function doDrag(e){
 	image1.style.width=`${startWidth+e.clientX-startX}px`;
-	ghostbar.style.left=image1.style.width;
+	ghostbar.style.left=image1.style.width;   //Above comment acknowledged
 }
 
 function stopDrag(e){
@@ -89,7 +89,7 @@ function initialize(e){
 	startX=e.clientX;
 	startY=e.clientY;
 	startWidth=image1.getBoundingClientRect().width; //startWidth is without px
-	container.addEventListener('mousemove',doDrag);
+	container.addEventListener('mousemove',doDrag);  //Tie the event to container not ghostbar
 	container.addEventListener('mouseup',stopDrag);
 }
 
