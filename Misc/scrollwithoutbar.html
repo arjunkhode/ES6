@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll without scrollbar</title>
+
+  <style>
+
+
+    .parent{
+      position: relative;
+      width:300px;
+      overflow: hidden;
+      height:800px;
+    }
+
+    .child{
+      position: absolute;
+      overflow-x: scroll;
+      width:100%;
+      height:100%;
+    }
+
+  </style>
+</head>
+<body>
+<div class="parent">
+<div class="child">
+  <img src="http://tech.co/wp-content/uploads/2016/04/jbl-flip-3.jpg">
+</div>
+</div>
+
+<script>
+const parent=document.querySelector('.parent');
+const child=document.querySelector('.child');
+
+child.style.bottom = `${child.clientHeight-child.offsetHeight}px`;
+</script>
+
+</body>
+</html>
