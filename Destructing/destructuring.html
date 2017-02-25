@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring in Action!</title>
+</head>
+<body>
+<script>
+
+const person={first:"A",second:"B",third:"C"};
+//Normal method
+
+const first=person.first;
+const second=person.second;
+const third=person.third;
+console.log(first,second,third);
+;
+
+//with destructing and renaming
+
+const (first:one,second:two,third:three)=person;
+console.log(one,two,three);
+
+//destructing in arrays
+
+const details=["AK","1945",2000];
+const [initial,dob,salary]= details;
+console.log(`${initial} was born in ${dob} and now earns ${salary}`);
+
+//swapping values
+  let inRing = 'Hulk Hogan';
+  let onSide = 'The Rock';
+
+  console.log(inRing, onSide);
+  [inRing, onSide] = [onSide, inRing];
+  console.log(inRing, onSide);
+
+//destructing default values
+
+const { w: width = 400, h: height = 500 } = { w: 800 }
+console.log(width,height); //should print 800,500
+
+</script>
+</body>
+</html>

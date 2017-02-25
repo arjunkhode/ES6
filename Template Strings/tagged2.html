@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Displaying objects in JS</title>
+  <style>
+    abbr {
+      border-bottom:1px dotted grey;
+    }
+    .element{
+    	background:#ffc600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bio">
+
+  </div>
+
+<script>
+
+
+const bio=document.querySelector('.bio');
+
+const dict=[{first:"Bugs",second:"McDonald",third:"Bunny"},{first:"Kayla",second:"McKayla",third:"Bunny"}];
+
+dict.forEach((dick,i) => {
+
+for(property in dick) {dick[property] = `<span class="element">${dick[property]}</span>`; console.log(dick[property]);};
+bio.innerHTML+=`first name:${dick.first} middle:${dick['second']} third:${dick['third']} ${(i<dict.length-1)?'<br>':''}`;
+});
+
+</script>
+</body>
+</html>
