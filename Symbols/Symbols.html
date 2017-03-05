@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbols</title>
+</head>
+<body>
+<script>
+  const ak = Symbol('AK');
+  const person = Symbol('AK');
+  console.log("The fact that person is the same as AK is:",person===ak); //returns false
+
+  const classRoom = {
+    
+    'Ganesh':{grade:50, gender:'male'},
+    'Bunty':{grade:60, gender:'male'},
+    'Bunty':{grade:70, gender:'female'},
+
+  };
+
+  //Instead of doing the above, we could use symbols
+
+  const symbolRoom = {
+    
+    [Symbol('Ganesh')]:{grade:50, gender:'male'},
+    [Symbol('Bunty')]:{grade:60, gender:'male'},
+    [Symbol('Bunty')]:{grade:70, gender:'female'},
+
+  };
+
+  //symbols are not enumerable
+  //but we can grab all the symbols contained by symbolRoom
+
+  const syms=Object.getOwnPropertySymbols(symbolRoom);
+  //syms.forEach(sym=>{console.log(sym.value)});
+  //forEach doesn't work here
+  //But we can map over the symbols
+  //symbols here are keys for the array symbolRoom, so we can access them
+  const symbolData=syms.map(sym=> symbolRoom[sym]);
+  console.table(symbolData);
+
+  //Remember that Symbol starts with a capital S!
+</script>
+</body>
+</html>
