@@ -16,11 +16,42 @@ class Dog{ //No parantheses after Dog
 	set nicknames(nick){ //We can't keep a setter name as nickname and variable name as nickname too
 		this.nickname=nick.trim(); //that would recursively call the setter nickname and cause a stack overflow
 	} //this would be called as dogObjectVariable.nicknames = "Nicky";
+	//just like we saw before, no need for const nickname; Just start directly using it
 
 	get nicknames(){
 		return(`${this.name}'s also called ${this.nickname}`);
 	} //this would be called as dogObjectVariable.nicknames;
 }
+
+//EXTENDING CLASSES
+
+class Puppy extends Dog{
+	constructor(name, breed, puppyColor){
+		super(name,breed); //Need to instantiate a Dog before we create a puppy
+		this.puppyColor = puppyColor;
+	}
+	squeal(){ //Notice how we don't have to write 'function squeal(){...}'. Skip 'function' keyword and skip commas
+		console.log(`Squeal! Look at me, I'm ${this.name} and I am of ${this.puppyColor} color :\)`);
+	}
+}
+
+/*
+Heres the console log
+
+>const scrappy = new Puppy("Scrappy","GR","Brown");
+undefined
+
+>scrappy.squeal();
+classes.html:34 Squeal! Look at me, I'm Scrappy and I am of Brown color :)
+undefined
+
+>scrappy.nicknames="Scrqappy Scoop"
+"Scrqappy Scoop"
+
+>scrappy.nicknames
+"Scrappy's also called Scrqappy Scoop"
+
+*/
 </script>
 </body>
 </html>
