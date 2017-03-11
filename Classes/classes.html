@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+class Dog{ //No parantheses after Dog
+
+	constructor(name,breed){ 
+		this.name = name; //You can directly set properties of a class without declaring them before
+		this.breed = breed; //So no need for const name; const breed;
+	}
+
+	get description(){ //description is a getter. It looks like a function 
+		return(`${this.name} is breed ${this.breed}`); //but it's treated like a property.
+	} //description getter would be called as dogObjectVariable.description; No parantheses after description
+
+	set nicknames(nick){ //We can't keep a setter name as nickname and variable name as nickname too
+		this.nickname=nick.trim(); //that would recursively call the setter nickname and cause a stack overflow
+	} //this would be called as dogObjectVariable.nicknames = "Nicky";
+
+	get nicknames(){
+		return(`${this.name}'s also called ${this.nickname}`);
+	} //this would be called as dogObjectVariable.nicknames;
+}
+</script>
+</body>
+</html>
