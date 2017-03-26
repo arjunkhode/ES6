@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bubbling and Capture</title>
+</head>
+<body>
+<div>
+<p>
+clike me
+</p>
+</div>
+<script>
+	
+	const p = document.querySelectorAll('*');
+	[...p].map((element)=>{
+		element.addEventListener('click',function(){console.log(this)},false);
+	});
+</script>
+</body>
+</html>
